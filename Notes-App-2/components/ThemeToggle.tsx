@@ -16,8 +16,8 @@ export function ThemeToggle() {
       onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label="Toggle theme"
       className="
-        px-4 h-9 rounded-full
-        text-sm font-medium tracking-wide
+        px-4 h-9 rounded-lg 
+        text-sm font-medium tracking-tight
         border
         border-zinc-200/70 dark:border-zinc-700/70
         bg-white/70 dark:bg-zinc-900/70
