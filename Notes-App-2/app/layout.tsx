@@ -1,18 +1,17 @@
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import { Providers } from "./providers"; 
 
-export const metadata = {
-  title: "Notes App",
-};
+const inter = Inter({ subsets: ["latin"] });
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export const metadata: Metadata = { title: "Snippet Vault" };
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className="min-h-screen bg-zinc-900 text-zinc-100">
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.className} bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100`}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
