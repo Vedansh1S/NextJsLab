@@ -3,7 +3,6 @@ import { randomUUID } from "crypto";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Plus, Trash2 } from "lucide-react";
 
-
 type Note = { id: string; text: string; createdAt: string };
 
 // In-memory DB (resets on server restart)
