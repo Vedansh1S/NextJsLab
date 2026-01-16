@@ -48,26 +48,40 @@ function LabelledInput({
   );
 }
 
-export default function SigninPage() {
+export default function SignupPage() {
   return (
     <div className="relative min-h-screen flex items-center justify-center p-4 sm:p-6">
       {/* Card */}
       <div className="z-10 w-full max-w-md">
         <div className="rounded-xl border border-zinc-200/50 dark:border-zinc-700/50 bg-white/60 dark:bg-zinc-900/60 backdrop-blur-xl p-6 sm:p-8 shadow-xl">
           <h1 className="mb-6 text-3xl sm:text-4xl font-extrabold text-center tracking-tight text-zinc-950 dark:text-zinc-100">
-            Sign in
+            Sign up
           </h1>
 
           <form className="space-y-2">
             <LabelledInput
               id="username"
               label="Username"
-              placeholder="Enter your username"
+              placeholder="Choose a username"
+            />
+
+            <LabelledInput
+              id="email"
+              label="Email"
+              type="email"
+              placeholder="Enter your email"
             />
 
             <LabelledInput
               id="password"
               label="Password"
+              type="password"
+              placeholder="••••••••"
+            />
+
+            <LabelledInput
+              id="confirmPassword"
+              label="Confirm Password"
               type="password"
               placeholder="••••••••"
             />
@@ -86,17 +100,17 @@ export default function SigninPage() {
                 transition-colors
               "
             >
-              Sign in
+              Sign up
             </button>
           </form>
 
           <p className="mt-6 text-center text-sm text-zinc-600 dark:text-zinc-400">
-            Don't have an account?{" "}
+            Already have an account?{" "}
             <Link
-              href="/signup"
+              href="/signin"
               className="font-semibold text-zinc-900 dark:text-indigo-400 hover:underline"
             >
-              Sign up
+              Sign in
             </Link>
           </p>
         </div>
