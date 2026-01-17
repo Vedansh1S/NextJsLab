@@ -1,5 +1,6 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { Providers } from "./providers";
 
 export default function RootLayout({
@@ -9,7 +10,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="relative min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-950 dark:text-zinc-100">
+      <body className="relative min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-950 dark:text-zinc-100 flex flex-col">
         <Providers>
           {/* --- THE RAY OF LIGHT - Applied to whole page --- */}
           <div className="fixed inset-0 pointer-events-none z-0">
@@ -22,7 +23,8 @@ export default function RootLayout({
             />
           </div>
           <Navbar />
-          {children}
+          <main className="flex-1">{children}</main>
+          <Footer />
         </Providers>
       </body>
     </html>

@@ -1,7 +1,36 @@
 "use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ThemeToggle } from "./ThemeToggle";
 import { useState } from "react";
+
+function NavLink({ href, children, onClick }: { href: string; children: React.ReactNode; onClick?: () => void }) {
+  const pathname = usePathname();
+  const isActive = pathname === href;
+
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      className="relative text-sm font-medium transition-colors py-2"
+    >
+      <span
+        className={`transition-colors ${
+          isActive
+            ? "text-zinc-950 dark:text-zinc-100"
+            : "text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-100"
+        }`}
+      >
+        {children}
+      </span>
+      <span
+        className={`absolute bottom-0 left-0 right-0 h-0.5 bg-zinc-950 dark:bg-zinc-100 transition-all duration-300 ease-in-out ${
+          isActive ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
+        }`}
+      />
+    </Link>
+  );
+}
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -19,34 +48,11 @@ export default function Navbar() {
 
         {/* Desktop Nav links and Theme Toggle */}
         <div className="hidden md:flex items-center gap-4 lg:gap-6">
-          <div className="flex items-center gap-4 lg:gap-6 text-sm font-medium">
-            <Link
-              href="/"
-              className="text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-100 transition-colors"
-            >
-              Home
-            </Link>
-
-            <Link
-              href="/signin"
-              className="text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-100 transition-colors"
-            >
-              Sign In
-            </Link>
-
-            <Link
-              href="/signup"
-              className="text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-100 transition-colors"
-            >
-              Sign Up
-            </Link>
-
-            <Link
-              href="/dashboard"
-              className="text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-100 transition-colors"
-            >
-              Dashboard
-            </Link>
+          <div className="flex items-center gap-4 lg:gap-6">
+            <NavLink href="/">Home</NavLink>
+            <NavLink href="/signin">Sign In</NavLink>
+            <NavLink href="/signup">Sign Up</NavLink>
+            <NavLink href="/dashboard">Dashboard</NavLink>
           </div>
           <div className="ml-2">
             <ThemeToggle />
@@ -84,37 +90,18 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="md:hidden mt-2 pb-4 border-t border-zinc-200/50 dark:border-zinc-700/50 animate-in slide-in-from-top">
           <div className="flex flex-col gap-3 pt-4 px-4">
-            <Link
-              href="/"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-100 transition-colors py-2 text-sm font-medium"
-            >
+            <NavLink href="/" onClick={() => setMobileMenuOpen(false)}>
               Home
-            </Link>
-
-            <Link
-              href="/signin"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-100 transition-colors py-2 text-sm font-medium"
-            >
+            </NavLink>
+            <NavLink href="/signin" onClick={() => setMobileMenuOpen(false)}>
               Sign In
-            </Link>
-
-            <Link
-              href="/signup"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-100 transition-colors py-2 text-sm font-medium"
-            >
+            </NavLink>
+            <NavLink href="/signup" onClick={() => setMobileMenuOpen(false)}>
               Sign Up
-            </Link>
-
-            <Link
-              href="/dashboard"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-100 transition-colors py-2 text-sm font-medium"
-            >
+            </NavLink>
+            <NavLink href="/dashboard" onClick={() => setMobileMenuOpen(false)}>
               Dashboard
-            </Link>
+            </NavLink>
           </div>
         </div>
       )}
