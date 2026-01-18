@@ -14,11 +14,6 @@ export default function Notes() {
 
   return (
     <div className="relative w-full max-w-md overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl">
-      
-      {/* Light ray */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -left-1/2 top-0 h-full w-1/2 rotate-12 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-light" />
-      </div>
 
       {/* Content */}
       <div className="relative p-6">
