@@ -25,6 +25,11 @@ export default function Notes() {
           <input
             value={text}
             onChange={e => setText(e.target.value)}
+            onKeyDown={e => {
+              if (e.key === "Enter") {
+                addTodo();
+              }
+            }}
             placeholder="Add a task..."
             className="flex-1 rounded-lg bg-black/40 px-3 py-2 text-white placeholder:text-white/40 outline-none ring-1 ring-white/10 focus:ring-indigo-500"
           />
