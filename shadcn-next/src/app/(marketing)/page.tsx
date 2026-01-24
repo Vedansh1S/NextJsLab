@@ -29,17 +29,13 @@ export default function Home() {
       <main className="flex-1">
         {/* --- Hero Section --- */}
         <section className="container mx-auto px-4 sm:px-6 py-28 md:py-36 flex flex-col items-center text-center space-y-8 relative">
-          <div className="absolute inset-0 -z-10 bg-gradient-to-b from-primary/10 via-transparent to-transparent" />
-
-          <Badge variant="secondary" className="px-4 py-1.5 text-sm rounded-full">
-            v2.0 is now live →
-          </Badge>
+          <div className="absolute inset-0 -z-10 bg-linear-to-b from-primary/10 via-transparent to-transparent" />
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight max-w-3xl">
             Build software <span className="text-primary">faster</span> than ever before.
           </h1>
 
-          <p className="max-w-[680px] text-lg md:text-xl text-muted-foreground">
+          <p className="max-w-170 text-lg md:text-xl text-muted-foreground">
             The complete toolkit for developers who want to ship stunning apps
             without wrestling with CSS or complex configurations.
           </p>
@@ -59,8 +55,8 @@ export default function Home() {
             </p>
 
             <div className="relative overflow-hidden">
-              <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10" />
-              <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10" />
+              <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-linear-to-r from-background to-transparent z-10" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-linear-to-l from-background to-transparent z-10" />
 
               <div className="marquee-track">
                 {[...logos, ...logos].map((logo, idx) => (
@@ -145,7 +141,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold tracking-tight">
               Ready to modernize your stack?
             </h2>
-            <p className="text-muted-foreground max-w-[600px]">
+            <p className="text-muted-foreground max-w-150">
               Join 10,000+ developers building the future of the web.
             </p>
             <div className="flex w-full max-w-sm items-center space-x-2">
@@ -159,22 +155,3 @@ export default function Home() {
     </div>
   );
 }
-
-/*
-Add to globals.css:
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee 28s linear infinite;
-}
-
-.marquee-track:hover {
-  animation-play-state: paused;
-}
-*/

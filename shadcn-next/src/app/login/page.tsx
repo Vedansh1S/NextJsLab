@@ -26,11 +26,11 @@ export default function LoginPage() {
         <CardContent className="grid gap-4">
           <div className="grid gap-2">
             <Label htmlFor="email">Email</Label>
-            <Input id="email" type="email" placeholder="m@example.com" required />
+            <Input id="email" type="email" placeholder="MaxRobinson@example.com" required />
           </div>
           <div className="grid gap-2">
             <Label htmlFor="password">Password</Label>
-            <Input id="password" type="password" required />
+            <Input id="password" placeholder="Password" type="password" required />
           </div>
           <Button className="w-full">Sign in</Button>
           <Button variant="outline" className="w-full gap-2">
