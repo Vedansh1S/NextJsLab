@@ -36,11 +36,16 @@ export default function SignupPage() {
           </div>
           <div className="grid gap-2">
             <Label htmlFor="email">Email</Label>
-            <Input id="email" type="email" placeholder="MaxRobinson@example.com" required />
+            <Input
+              id="email"
+              type="email"
+              placeholder="MaxRobinson@example.com"
+              required
+            />
           </div>
           <div className="grid gap-2">
             <Label htmlFor="password">Password</Label>
-            <Input id="password" placeholder="Password"type="password" />
+            <Input id="password" placeholder="Password" type="password" />
           </div>
           <Button type="submit" className="w-full">
             Create an account
@@ -51,9 +56,12 @@ export default function SignupPage() {
           </Button>
         </CardContent>
         <CardFooter className="flex flex-col gap-4">
-             <div className="w-full text-center text-sm text-muted-foreground">
+          <div className="text-muted-foreground w-full text-center text-sm">
             Already have an account?{" "}
-            <Link href="/login" className="underline underline-offset-4 hover:text-primary">
+            <Link
+              href="/login"
+              className="hover:text-primary underline underline-offset-4"
+            >
               Sign in
             </Link>
           </div>

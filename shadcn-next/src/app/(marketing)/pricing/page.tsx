@@ -18,7 +18,7 @@ import { cn } from "@/lib/utils"; // Standard shadcn utility
 
 export default function PricingPage() {
   const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">(
-    "monthly"
+    "monthly",
   );
 
   const plans = [
@@ -55,18 +55,18 @@ export default function PricingPage() {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-24 min-h-screen">
+    <div className="container mx-auto min-h-screen px-4 py-24">
       {/* Header Section */}
-      <div className="text-center space-y-4 mb-16">
+      <div className="mb-16 space-y-4 text-center">
         <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">
           Simple, transparent pricing
         </h1>
-        <p className="text-lg text-muted-foreground">
+        <p className="text-muted-foreground text-lg">
           Choose the plan that's right for your business.
         </p>
 
         {/* Improved Toggle with 'Tabs' */}
-        <div className="flex justify-center mt-8">
+        <div className="mt-8 flex justify-center">
           <Tabs
             defaultValue="monthly"
             className="w-100"
@@ -74,8 +74,8 @@ export default function PricingPage() {
               setBillingCycle(value as "monthly" | "yearly")
             }
           >
-            <div className="flex justify-center items-center gap-4">
-              <TabsList className="grid w-full grid-cols-2 max-w-75">
+            <div className="flex items-center justify-center gap-4">
+              <TabsList className="grid w-full max-w-75 grid-cols-2">
                 <TabsTrigger value="monthly">Monthly</TabsTrigger>
                 <TabsTrigger value="yearly">Yearly</TabsTrigger>
               </TabsList>
@@ -83,7 +83,7 @@ export default function PricingPage() {
               {/* The Psychology Trick: Show the savings explicitly */}
               <Badge
                 variant="secondary"
-                className="hidden sm:block text-primary border-primary/20"
+                className="text-primary border-primary/20 hidden sm:block"
               >
                 Save 20%
               </Badge>
@@ -93,7 +93,7 @@ export default function PricingPage() {
       </div>
 
       {/* Pricing Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-3">
         {plans.map((plan) => {
           const isPro = plan.popular;
           const price =
@@ -104,10 +104,10 @@ export default function PricingPage() {
             <Card
               key={plan.name}
               className={cn(
-                "flex flex-col relative transition-all duration-200",
+                "relative flex flex-col transition-all duration-200",
                 isPro
-                  ? "border-primary shadow-lg scale-100 md:scale-105 z-10"
-                  : "border-border hover:border-primary/50"
+                  ? "border-primary z-10 scale-100 shadow-lg md:scale-105"
+                  : "border-border hover:border-primary/50",
               )}
             >
               {isPro && (
@@ -124,7 +124,7 @@ export default function PricingPage() {
               </CardHeader>
 
               <CardContent className="flex-1">
-                <div className="flex items-baseline gap-1 mb-6">
+                <div className="mb-6 flex items-baseline gap-1">
                   {isCustom ? (
                     <span className="text-4xl font-bold">Custom</span>
                   ) : (
@@ -137,10 +137,10 @@ export default function PricingPage() {
                   )}
                 </div>
 
-                <ul className="space-y-3 text-sm text-muted-foreground">
+                <ul className="text-muted-foreground space-y-3 text-sm">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-center">
-                      <Check className="mr-2 h-4 w-4 text-primary shrink-0" />
+                      <Check className="text-primary mr-2 h-4 w-4 shrink-0" />
                       {feature}
                     </li>
                   ))}
@@ -165,7 +165,7 @@ export default function PricingPage() {
       <div className="mt-16 text-center">
         <p className="text-muted-foreground text-sm">
           All prices in USD. Need a custom contract?{" "}
-          <a href="#" className="underline hover:text-primary">
+          <a href="#" className="hover:text-primary underline">
             Chat with us
           </a>
           .

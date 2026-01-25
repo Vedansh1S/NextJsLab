@@ -17,30 +17,30 @@ export function Footer() {
   };
 
   return (
-    <footer className="border-t bg-muted/30 py-12">
+    <footer className="bg-muted/30 border-t py-12">
       <div className="container mx-auto px-8 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-3">
           {/* Brand Section */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2 font-semibold text-lg">
+            <div className="flex items-center space-x-2 text-lg font-semibold">
               <Layers className="h-5 w-5" />
               <span>SaaS.ui</span>
             </div>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-muted-foreground text-sm">
               Build beautiful SaaS applications with modern UI components.
             </p>
           </div>
 
           {/* Product Links */}
           <div className="space-y-4 sm:px-8">
-            <h3 className="font-semibold text-sm">Product</h3>
+            <h3 className="text-sm font-semibold">Product</h3>
             <ul className="space-y-2">
               {footerLinks.product.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-muted-foreground hover:text-foreground text-sm transition-colors"
                   >
                     {link.label}
                   </a>
@@ -49,10 +49,9 @@ export function Footer() {
             </ul>
           </div>
 
-
           {/* Social Links */}
           <div className="space-y-4 sm:px-8">
-            <h3 className="font-semibold text-sm">Follow Us</h3>
+            <h3 className="text-sm font-semibold">Follow Us</h3>
             <div className="flex space-x-4">
               {footerLinks.social.map((link) => {
                 const Icon = link.icon;
@@ -74,11 +73,10 @@ export function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <p className="text-sm text-muted-foreground">
+        <div className="flex flex-col items-center justify-between space-y-4 border-t pt-8 md:flex-row md:space-y-0">
+          <p className="text-muted-foreground text-sm">
             © {currentYear} SaaS.ui Inc. All rights reserved.
           </p>
-          
         </div>
       </div>
     </footer>

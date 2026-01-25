@@ -35,16 +35,15 @@ const values = [
 export default function AboutPage() {
   return (
     <main className="relative overflow-hidden">
-
-      <div className="container mx-auto px-4 py-28 space-y-28">
+      <div className="container mx-auto space-y-28 px-4 py-28">
         {/* Hero / Mission */}
-        <section className="text-center max-w-4xl mx-auto space-y-6">
+        <section className="mx-auto max-w-4xl space-y-6 text-center">
           <Badge variant="outline">About Us</Badge>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
             The operating system <br className="hidden sm:block" />
             for modern web teams
           </h1>
-          <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+          <p className="text-muted-foreground mx-auto max-w-3xl text-lg leading-relaxed sm:text-xl">
             SaaS.ui exists because developers waste too much time rebuilding the
             same foundations. We give you primitives that scale — technically
             and mentally.
@@ -54,7 +53,7 @@ export default function AboutPage() {
         <Separator />
 
         {/* Stats */}
-        <section className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <section className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {[
             { value: "100+", label: "Requests / Day" },
             { value: "99.99%", label: "Uptime" },
@@ -63,10 +62,10 @@ export default function AboutPage() {
           ].map((stat) => (
             <div
               key={stat.label}
-              className="text-center rounded-xl bg-background/60 backdrop-blur p-6 transition"
+              className="bg-background/60 rounded-xl p-6 text-center backdrop-blur transition"
             >
-              <h3 className="text-4xl font-bold text-primary">{stat.value}</h3>
-              <p className="mt-2 text-sm text-muted-foreground uppercase tracking-wider">
+              <h3 className="text-primary text-4xl font-bold">{stat.value}</h3>
+              <p className="text-muted-foreground mt-2 text-sm tracking-wider uppercase">
                 {stat.label}
               </p>
             </div>
@@ -77,29 +76,28 @@ export default function AboutPage() {
 
         {/* Values */}
         <section className="space-y-14">
-          <div className="text-center max-w-3xl mx-auto space-y-4">
+          <div className="mx-auto max-w-3xl space-y-4 text-center">
             <Badge variant="outline">Our Values</Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
               Principles we don’t compromise on
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-muted-foreground text-lg">
               These values shape every architectural decision and every product
               trade-off.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {values.map((value) => {
               const Icon = value.icon;
               return (
                 <Card
                   key={value.title}
-                  className="group relative overflow-hidden border-muted hover:border-primary/40 transition"
+                  className="group border-muted hover:border-primary/40 relative overflow-hidden transition"
                 >
-                
                   <CardHeader>
-                    <div className="mb-4 w-fit rounded-lg bg-primary/10 p-2">
-                      <Icon className="h-6 w-6 text-primary" />
+                    <div className="bg-primary/10 mb-4 w-fit rounded-lg p-2">
+                      <Icon className="text-primary h-6 w-6" />
                     </div>
                     <CardTitle>{value.title}</CardTitle>
                   </CardHeader>
@@ -117,18 +115,17 @@ export default function AboutPage() {
         <Separator />
 
         {/* CTA */}
-        <section className="relative overflow-hidden rounded-lg border border-primary/30 bg-background/70 backdrop-blur p-14 text-center space-y-8">
-
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+        <section className="border-primary/30 bg-background/70 relative space-y-8 overflow-hidden rounded-lg border p-14 text-center backdrop-blur">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
             Build faster. Ship smarter.
           </h2>
 
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
             Join a growing community of developers who care about quality,
             performance, and long-term maintainability.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Button size="lg" asChild>
               <Link href="/pricing">
                 Get Started <ArrowRight className="ml-2 h-4 w-4" />

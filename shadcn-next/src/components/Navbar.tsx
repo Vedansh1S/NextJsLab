@@ -21,21 +21,21 @@ export function Navbar() {
   return (
     <>
       {/* ===== Desktop Navbar ===== */}
-      <header className="sticky top-0 z-50 border-b bg-background/70 backdrop-blur">
+      <header className="bg-background/70 sticky top-0 z-50 border-b backdrop-blur">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           {/* Logo */}
           <Link
             href="/"
             className="flex items-center gap-2 font-semibold tracking-tight"
           >
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg border bg-background">
-              <Layers className="h-4 w-4 text-primary" />
+            <div className="bg-background flex h-9 w-9 items-center justify-center rounded-lg border">
+              <Layers className="text-primary h-4 w-4" />
             </div>
             <span className="text-lg">SaaS.ui</span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-2 rounded-full border bg-muted/40 px-2 py-1">
+          <nav className="bg-muted/40 hidden items-center gap-2 rounded-full border px-2 py-1 md:flex">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -65,7 +65,7 @@ export function Navbar() {
             {/* Mobile menu button */}
             <button
               onClick={() => setOpen(true)}
-              className="md:hidden rounded-lg border p-2"
+              className="rounded-lg border p-2 md:hidden"
             >
               <Menu className="h-5 w-5" />
             </button>
@@ -75,7 +75,7 @@ export function Navbar() {
 
       {/* ===== Mobile Fullscreen Menu ===== */}
       {open && (
-        <div className="fixed inset-0 z-50 bg-background">
+        <div className="bg-background fixed inset-0 z-50">
           {/* Top bar */}
           <div className="flex items-center justify-between border-b px-4 py-4">
             <Link
@@ -84,7 +84,7 @@ export function Navbar() {
               className="flex items-center gap-2 font-semibold"
             >
               <div className="flex h-9 w-9 items-center justify-center rounded-lg border">
-                <Layers className="h-4 w-4 text-primary" />
+                <Layers className="text-primary h-4 w-4" />
               </div>
               <span>SaaS.ui</span>
             </Link>

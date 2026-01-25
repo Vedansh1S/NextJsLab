@@ -78,33 +78,33 @@ const useCases = [
 
 export default function FeaturesPage() {
   return (
-    <div className="container mx-auto px-4 py-24 space-y-24">
+    <div className="container mx-auto space-y-24 px-4 py-24">
       {/* Header */}
-      <div className="text-center space-y-4 max-w-3xl mx-auto">
+      <div className="mx-auto max-w-3xl space-y-4 text-center">
         <Badge variant="outline">Features</Badge>
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
           More power. Less configuration.
         </h1>
-        <p className="text-lg text-muted-foreground">
+        <p className="text-muted-foreground text-lg">
           We stripped away the complexity so you can focus on writing code.
         </p>
       </div>
 
       {/* Bento Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
         {features.map((feature, i) => {
           const Icon = feature.icon;
           return (
             <Card
               key={i}
-              className={`${feature.gridClass} flex flex-col justify-between hover:shadow-lg transition-all duration-300 hover:border-primary/50 group cursor-pointer`}
+              className={`${feature.gridClass} hover:border-primary/50 group flex cursor-pointer flex-col justify-between transition-all duration-300 hover:shadow-lg`}
             >
               <CardHeader>
-                <Icon className="h-8 w-8 text-primary mb-3 group-hover:scale-110 transition-transform" />
+                <Icon className="text-primary mb-3 h-8 w-8 transition-transform group-hover:scale-110" />
                 <CardTitle className="text-lg">{feature.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-muted-foreground text-sm">
                   {feature.description}
                 </p>
               </CardContent>
@@ -115,28 +115,28 @@ export default function FeaturesPage() {
 
       {/* Use Cases Section */}
       <div className="space-y-12">
-        <div className="text-center space-y-4 max-w-3xl mx-auto">
+        <div className="mx-auto max-w-3xl space-y-4 text-center">
           <Badge variant="outline">Use Cases</Badge>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
             Built for everyone
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-muted-foreground text-lg">
             Whether you're a solo developer or managing enterprise
             infrastructure, SaaS.ui has you covered.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {useCases.map((useCase, idx) => {
             const Icon = useCase.icon;
             return (
               <Card
                 key={idx}
-                className="flex flex-col transition-all hover:border-primary/50"
+                className="hover:border-primary/50 flex flex-col transition-all"
               >
                 <CardHeader>
-                  <div className="p-2 w-fit bg-primary/10 rounded-lg mb-4">
-                    <Icon className="h-6 w-6 text-primary" />
+                  <div className="bg-primary/10 mb-4 w-fit rounded-lg p-2">
+                    <Icon className="text-primary h-6 w-6" />
                   </div>
                   <CardTitle className="text-xl">{useCase.title}</CardTitle>
                 </CardHeader>
@@ -150,15 +150,15 @@ export default function FeaturesPage() {
       </div>
 
       {/* CTA Section */}
-      <div className="rounded-xl border border-primary/20 p-12 text-center space-y-6 hover:border-primary/50">
+      <div className="border-primary/20 hover:border-primary/50 space-y-6 rounded-xl border p-12 text-center">
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
           Ready to get started?
         </h2>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
           Join thousands of developers who are building amazing things with
           SaaS.ui. Start with our free tier today.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col justify-center gap-4 sm:flex-row">
           <Button size="lg" asChild>
             <Link href="/pricing">
               View Pricing

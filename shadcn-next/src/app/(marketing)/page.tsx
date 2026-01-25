@@ -10,7 +10,18 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { ArrowRight, Check, Code2, Layers, Zap, Command, Cpu, Globe, Infinity, Box } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  Code2,
+  Layers,
+  Zap,
+  Command,
+  Cpu,
+  Globe,
+  Infinity,
+  Box,
+} from "lucide-react";
 
 // --- LOGO DATA ---
 const logos = [
@@ -25,17 +36,18 @@ const logos = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col">
+    <div className="bg-background text-foreground flex min-h-screen flex-col">
       <main className="flex-1">
         {/* --- Hero Section --- */}
-        <section className="container mx-auto px-4 sm:px-6 py-28 md:py-36 flex flex-col items-center text-center space-y-8 relative">
-          <div className="absolute inset-0 -z-10 bg-linear-to-b from-primary/10 via-transparent to-transparent" />
+        <section className="relative container mx-auto flex flex-col items-center space-y-8 px-4 py-28 text-center sm:px-6 md:py-36">
+          <div className="from-primary/10 absolute inset-0 -z-10 bg-linear-to-b via-transparent to-transparent" />
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight max-w-3xl">
-            Build software <span className="text-primary">faster</span> than ever before.
+          <h1 className="max-w-3xl text-4xl font-extrabold tracking-tight md:text-6xl lg:text-7xl">
+            Build software <span className="text-primary">faster</span> than
+            ever before.
           </h1>
 
-          <p className="max-w-170 text-lg md:text-xl text-muted-foreground">
+          <p className="text-muted-foreground max-w-170 text-lg md:text-xl">
             The complete toolkit for developers who want to ship stunning apps
             without wrestling with CSS or complex configurations.
           </p>
@@ -48,21 +60,21 @@ export default function Home() {
         </section>
 
         {/* --- Infinite Marquee (Refined) --- */}
-        <section className="relative border-y bg-muted/30 overflow-hidden">
+        <section className="bg-muted/30 relative overflow-hidden border-y">
           <div className="container mx-auto px-4 py-12">
-            <p className="text-center text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-10">
+            <p className="text-muted-foreground mb-10 text-center text-xs font-semibold tracking-widest uppercase">
               Trusted by innovative teams
             </p>
 
             <div className="relative overflow-hidden">
-              <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-linear-to-r from-background to-transparent z-10" />
-              <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-linear-to-l from-background to-transparent z-10" />
+              <div className="from-background pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-linear-to-r to-transparent" />
+              <div className="from-background pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-linear-to-l to-transparent" />
 
               <div className="marquee-track">
                 {[...logos, ...logos].map((logo, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center gap-2 px-8 text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-muted-foreground hover:text-foreground flex items-center gap-2 px-8 transition-colors"
                   >
                     <logo.icon className="h-7 w-7" />
                     <span className="text-base font-medium">{logo.name}</span>
@@ -74,61 +86,86 @@ export default function Home() {
         </section>
 
         {/* --- Features Grid --- */}
-        <section id="features" className="container mx-auto px-4 sm:px-6 py-28 space-y-14">
-          <div className="text-center space-y-4 max-w-2xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+        <section
+          id="features"
+          className="container mx-auto space-y-14 px-4 py-28 sm:px-6"
+        >
+          <div className="mx-auto max-w-2xl space-y-4 text-center">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
               Everything you need to ship
             </h2>
             <p className="text-muted-foreground text-lg">
-              We handle the boring stuff so you can focus on your product's core value.
+              We handle the boring stuff so you can focus on your product's core
+              value.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <Card className="group hover:border-primary/50 transition-all">
               <CardHeader>
-                <Zap className="h-10 w-10 text-primary mb-2" />
+                <Zap className="text-primary mb-2 h-10 w-10" />
                 <CardTitle>Lightning Fast</CardTitle>
                 <CardDescription>
-                  Optimized for speed. Zero runtime overhead with our modern compiler.
+                  Optimized for speed. Zero runtime overhead with our modern
+                  compiler.
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-center"><Check className="mr-2 h-4 w-4 text-green-500" />Instant HMR</li>
-                  <li className="flex items-center"><Check className="mr-2 h-4 w-4 text-green-500" />Edge Ready</li>
+                <ul className="text-muted-foreground space-y-2 text-sm">
+                  <li className="flex items-center">
+                    <Check className="mr-2 h-4 w-4 text-green-500" />
+                    Instant HMR
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="mr-2 h-4 w-4 text-green-500" />
+                    Edge Ready
+                  </li>
                 </ul>
               </CardContent>
             </Card>
 
             <Card className="group hover:border-primary/50 transition-all">
               <CardHeader>
-                <Code2 className="h-10 w-10 text-primary mb-2" />
+                <Code2 className="text-primary mb-2 h-10 w-10" />
                 <CardTitle>Type Safe</CardTitle>
                 <CardDescription>
-                  Built with TypeScript from the ground up. Catch errors before they happen.
+                  Built with TypeScript from the ground up. Catch errors before
+                  they happen.
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-center"><Check className="mr-2 h-4 w-4 text-green-500" />100% Typed</li>
-                  <li className="flex items-center"><Check className="mr-2 h-4 w-4 text-green-500" />Autocomplete</li>
+                <ul className="text-muted-foreground space-y-2 text-sm">
+                  <li className="flex items-center">
+                    <Check className="mr-2 h-4 w-4 text-green-500" />
+                    100% Typed
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="mr-2 h-4 w-4 text-green-500" />
+                    Autocomplete
+                  </li>
                 </ul>
               </CardContent>
             </Card>
 
             <Card className="group hover:border-primary/50 transition-all">
               <CardHeader>
-                <Layers className="h-10 w-10 text-primary mb-2" />
+                <Layers className="text-primary mb-2 h-10 w-10" />
                 <CardTitle>Scalable</CardTitle>
                 <CardDescription>
-                  From side project to enterprise. Our architecture scales with you.
+                  From side project to enterprise. Our architecture scales with
+                  you.
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-center"><Check className="mr-2 h-4 w-4 text-green-500" />Modular</li>
-                  <li className="flex items-center"><Check className="mr-2 h-4 w-4 text-green-500" />Micro-frontends</li>
+                <ul className="text-muted-foreground space-y-2 text-sm">
+                  <li className="flex items-center">
+                    <Check className="mr-2 h-4 w-4 text-green-500" />
+                    Modular
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="mr-2 h-4 w-4 text-green-500" />
+                    Micro-frontends
+                  </li>
                 </ul>
               </CardContent>
             </Card>
@@ -137,7 +174,7 @@ export default function Home() {
 
         {/* --- Newsletter / CTA --- */}
         <section className="bg-muted/50 py-28">
-          <div className="container mx-auto px-4 sm:px-6 flex flex-col items-center text-center space-y-6">
+          <div className="container mx-auto flex flex-col items-center space-y-6 px-4 text-center sm:px-6">
             <h2 className="text-3xl font-bold tracking-tight">
               Ready to modernize your stack?
             </h2>
@@ -148,7 +185,9 @@ export default function Home() {
               <Input type="email" placeholder="Enter your email" />
               <Button type="submit">Subscribe</Button>
             </div>
-            <p className="text-xs text-muted-foreground">No spam. Unsubscribe anytime.</p>
+            <p className="text-muted-foreground text-xs">
+              No spam. Unsubscribe anytime.
+            </p>
           </div>
         </section>
       </main>

@@ -26,11 +26,21 @@ export default function LoginPage() {
         <CardContent className="grid gap-4">
           <div className="grid gap-2">
             <Label htmlFor="email">Email</Label>
-            <Input id="email" type="email" placeholder="MaxRobinson@example.com" required />
+            <Input
+              id="email"
+              type="email"
+              placeholder="MaxRobinson@example.com"
+              required
+            />
           </div>
           <div className="grid gap-2">
             <Label htmlFor="password">Password</Label>
-            <Input id="password" placeholder="Password" type="password" required />
+            <Input
+              id="password"
+              placeholder="Password"
+              type="password"
+              required
+            />
           </div>
           <Button className="w-full">Sign in</Button>
           <Button variant="outline" className="w-full gap-2">
@@ -39,9 +49,12 @@ export default function LoginPage() {
           </Button>
         </CardContent>
         <CardFooter>
-          <div className="w-full text-center text-sm text-muted-foreground">
+          <div className="text-muted-foreground w-full text-center text-sm">
             Don&apos;t have an account?{" "}
-            <Link href="/signup" className="underline underline-offset-4 hover:text-primary">
+            <Link
+              href="/signup"
+              className="hover:text-primary underline underline-offset-4"
+            >
               Sign up
             </Link>
           </div>
