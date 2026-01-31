@@ -25,19 +25,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen relative overflow-x-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} relative min-h-screen overflow-x-hidden antialiased`}
       >
         {/* Animated gradient background */}
         <div className="fixed inset-0 -z-10">
-          
-          <div className="absolute inset-0 bg-linear-to-br from-slate-900 via-indigo-900 to-purple-900"></div>
-          
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.3),transparent_50%)]"></div>
-          
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(139,92,246,0.3),transparent_50%)]"></div>
-          
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(99,102,241,0.2),transparent_70%)] animate-pulse"></div>
-
+          <div className="pointer-events-none absolute top-0 left-0 z-0 h-full w-full">
+            {/* The Beam: Rotated, heavily blurred, gradient from corner */}
+            <div className="absolute -top-[20%] -left-[20%] h-[150%] w-[80%] rotate-45 transform-gpu bg-linear-to-br from-amber-300/30 via-orange-100/5 to-transparent blur-[100px] dark:from-indigo-500/30 dark:via-purple-500/5 dark:to-transparent" />
+          </div>
         </div>
         {children}
       </body>
